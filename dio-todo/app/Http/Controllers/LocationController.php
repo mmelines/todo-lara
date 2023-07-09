@@ -12,8 +12,8 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
-        return view('locations.index', []);
+        $locations = Location::all();
+        return view('locations.index', ['locations'=>$locations]);
     }
 
     /**
@@ -38,6 +38,7 @@ class LocationController extends Controller
     public function show(Location $location)
     {
         //
+        return view('locations.show', ['location'=>$location]);
     }
 
     /**
