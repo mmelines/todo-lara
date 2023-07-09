@@ -69,6 +69,13 @@ return new class extends Migration
             $table->timestamps();
         });
         //        
+        Schema::create('volunteers', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('users_id')->constrained();
+            $table->date('enrollment_date');
+            $table->timestamps();
+        });
+        //        
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->dateTimeTz('start_datetime');
@@ -108,13 +115,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('contact_id')->constrained();
             $table->foreignId('facility_id')->constrained();
-            $table->timestamps();
-        });
-        //        
-        Schema::create('volunteers', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('users_id')->constrained();
-            $table->date('enrollment_date');
             $table->timestamps();
         });
         //        
